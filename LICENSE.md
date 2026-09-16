@@ -28,4 +28,22 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-Modifications Copyright © 2025, tahazarei77
+---
+
+## Modifications
+
+This project is a fork of [ExceptBot](https://github.com/geneffects/exceptbot),
+originally created by Brian Risk and D.AT Analytics, LLC.
+
+Modifications Copyright © 2025, Taha Zarei.
+
+The following changes were made to the original work:
+
+- Converted HTML views to Django REST Framework API endpoints
+- Replaced `auth.User` with `settings.AUTH_USER_MODEL` for custom user model support
+- Added new model fields: `http_method`, `status_code`, `source`, `ip_address`, `user_agent`, `request_data`, `resolution_note`
+- Added source detection via the `X-Client-Type` header
+- Added sensitive data masking for request bodies
+- Added singleton pattern for `AppSettings` with `get_solo()` method
+- Added `mark_resolved()` method to `ExceptionLog`
+- Removed form-based UI and HTML templates
