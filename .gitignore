@@ -1,0 +1,17 @@
+# Build artifacts
+build/
+dist/
+*.egg-info/
+*.egg
+PKG-INFO
+__pycache__/
+*.py[cod]
+
+# Virtual environment
+.venv/
+venv/
+env/
+
+# IDE
+.idea/
+.vscode/
