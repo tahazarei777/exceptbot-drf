@@ -1,15 +1,17 @@
 [build-system]
-requires = ["setuptools>=61.0", "wheel"]
+requires = ["setuptools>=77.0.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "exceptbot-drf"
-version = "1.0.0"
+version = "1.0.1"
 description = "Exception Logger with AI Suggestions for Django REST Framework"
 readme = "README.md"
 requires-python = ">=3.8"
-license = { file = "LICENSE.md" }
+license = "BSD-3-Clause"
+license-files = ["LICENSE.md"]
 authors = [
+    { name = "Brian Risk", email = "geneffects@gmail.com" },
     { name = "Taha Zarei", email = "tahazarei777@gmail.com" },
 ]
 maintainers = [
@@ -36,7 +38,6 @@ classifiers = [
     "Framework :: Django :: 4.2",
     "Framework :: Django :: 5.0",
     "Intended Audience :: Developers",
-    "License :: OSI Approved :: BSD License",
     "Operating System :: OS Independent",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.8",
