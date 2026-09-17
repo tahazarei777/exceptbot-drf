@@ -1,7 +1,7 @@
-```
+
 # ExceptBot DRF
 
-Exception Logger with AI Suggestions for Django REST Framework.
+**Exception Logger with AI Suggestions for Django REST Framework.**
 
 [![PyPI version](https://badge.fury.io/py/exceptbot-drf.svg)](https://pypi.org/project/exceptbot-drf/)
 [![Python](https://img.shields.io/badge/python-3.8%2B-blue)](https://www.python.org/)
@@ -27,6 +27,8 @@ This project is a fork of [ExceptBot](https://github.com/geneffects/exceptbot) b
 - Resolution tracking with `is_resolved`, `resolved_by`, `resolved_at`, and `resolution_note`
 - REST API with superuser-only access
 - Singleton `AppSettings` model
+- Works with any DRF authentication backend (JWT, Token, Session, OAuth)
+- Custom user model support via `AUTH_USER_MODEL`
 
 ## Requirements
 
@@ -65,7 +67,7 @@ MIDDLEWARE = [
 ]
 ```
 
-`AuthenticationMiddleware` must appear before `ExceptBotMiddleware` so that `request.user` is available.
+`AuthenticationMiddleware` must appear before `ExceptBotMiddleware` so that `request.user` is available. If you have custom middleware that checks `request.user`, place `ExceptBotMiddleware` before it.
 
 ### 3. Configure DRF authentication
 
@@ -150,6 +152,20 @@ curl -X POST \
      http://localhost:8000/exceptbot/api/1/ai/
 ```
 
+Update settings:
+
+```bash
+curl -X PUT \
+     -H "Authorization: Bearer YOUR_TOKEN" \
+     -H "Content-Type: application/json" \
+     -d '{
+       "openai_api_key": "sk-...",
+       "base_url": "https://myapp.com",
+       "project_name": "my_project"
+     }' \
+     http://localhost:8000/exceptbot/api/settings/
+```
+
 ## Source Detection
 
 To distinguish frontend errors from backend errors, include the following header in requests:
@@ -210,25 +226,4 @@ Original work: Copyright © 2023-present, [D.AT Analytics, LLC](https://d.at/). 
 Modifications: Copyright © 2025, Taha Zarei.
 
 Licensed under the BSD 3-Clause License. See [LICENSE.md](LICENSE.md) for details.
-Exception Logger with AI Suggestions for Django REST Framework
 ```
-
-**Website:**
-```
-https://pypi.org/project/exceptbot-drf/
-```
-
-**Topics:**
-```
-django
-django-rest-framework
-drf
-exception-logger
-error-tracking
-openai
-chatgpt
-python
-middleware
-api
-```
-
